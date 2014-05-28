@@ -1,7 +1,7 @@
 {
   "url" : "http://node-linda-base.herokuapp.com",
-  "spaces" : {
-    "masuilab": "増井研",
+  "watch" : "masuilab",
+  "regions" : {
     "delta": "デルタ",
     "iota": "イオタ",
     "tau": "タウ",
