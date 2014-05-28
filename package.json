@@ -1,0 +1,11 @@
+{
+  "name": "linda-region-notify",
+  "version": "0.0.0",
+  "description": "notify \"region\" tuple to slack, skype and mac-say",
+  "main": "linda-region-notify.coffee",
+  "scripts": {
+    "start": "./node_modules/coffee-script/bin/coffee linda-region-notify.coffee"
+  },
+  "author": "Sho Hashimoto <hashimoto@shokai.org>",
+  "license": "MIT"
+}
