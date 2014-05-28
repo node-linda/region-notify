@@ -23,10 +23,12 @@ linda.io.on 'connect', ->
     return unless tuple.data.who?
     return unless tuple.data.action?
     console.log tuple
+    where = tuple.data.where
+    who = tuple.data.who
     msg = switch tuple.data.action
       when "enter"
-        "#{config.regions[tuple.data.where]}に#{tuple.data.who}があらわれました"
+        "#{config.regions[where] or where}に#{who}があらわれました"
       when "leave"
-        "#{config.regions[tuple.data.where]}から#{tuple.data.who}が離れました"
+        "#{config.regions[where] or where}から#{who}が離れました"
     console.log msg
     notify msg
