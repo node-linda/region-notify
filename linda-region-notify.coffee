@@ -8,16 +8,17 @@ socket = require('socket.io-client').connect(config.url)
 linda = new LindaClient().connect(socket)
 
 notify = (msg) ->
+  ts = linda.tuplespace(config.tuplespace)
+  ts.write {type: "skype", cmd: "post", value: msg}
+  ts.write {type: "slack", cmd: "post", value: msg}
   for name, yomi of config.regions
     ts = linda.tuplespace(name)
     ts.write {type: "say", value: msg}
-    ts.write {type: "skype", cmd: "post", value: msg}
-    ts.write {type: "slack", cmd: "post", value: msg}
 
 linda.io.on 'connect', ->
   console.log "socket.io connect!!"
 
-  linda.tuplespace(config.watch).watch {type: "region"}, (err, tuple) ->
+  linda.tuplespace(config.tuplespace).watch {type: "region"}, (err, tuple) ->
     return if err
     return unless tuple.data.where?
     return unless tuple.data.who?

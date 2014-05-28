@@ -1,6 +1,6 @@
 {
   "url" : "http://node-linda-base.herokuapp.com",
-  "watch" : "masuilab",
+  "tuplespace" : "masuilab",
   "regions" : {
     "delta": "デルタ",
     "iota": "イオタ",
